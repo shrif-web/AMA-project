@@ -27,8 +27,10 @@ then copy nginx config
 
     cd path_to_webProject/nginx/
     sudo cp ama-project.com.conf /etc/nginx/sites-available/ama-project.com.conf
+    sudo cp back.ama-project.com.conf /etc/nginx/sites-available/backama-project.com.conf
     cd /etc/nginx/sites-enabled/
     sudo ln -s ../sites-available/ama-project.com.conf .
+    sudo ln -s ../sites-available/back.ama-project.com.conf .
     
 and restart nginx
 
@@ -37,5 +39,6 @@ and restart nginx
 add this line to `/etc/hosts` in your **client machine**
 
     server_ip_addres ama_project.com
+    server_ip_addres back.ama_project.com
    `server_ip_addres` is  your server's `ip`
 and now open your browser and go to `http://ama_project.com` 
