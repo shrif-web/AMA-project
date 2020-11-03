@@ -1,1 +1,1 @@
-export const BACK_END_URL = "http://back.ama-project.com"
+export const BACK_END_URL = "http://ama-project.com/api"
