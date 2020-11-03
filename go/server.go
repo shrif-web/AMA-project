@@ -22,8 +22,8 @@ type shaResponse struct {
 }
 
 func main() {
-	http.HandleFunc("/go/sha", sha)
-	http.HandleFunc("/go/write", write)
+	http.HandleFunc("/sha", sha)
+	http.HandleFunc("/write", write)
 	http.ListenAndServe(":8000", nil)
 }
 
