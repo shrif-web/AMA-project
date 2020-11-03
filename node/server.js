@@ -1,14 +1,12 @@
 const express = require('express')
-var cors = require('cors')
 const app = express()
-app.use(cors())
 const port = 9000
 app.use(express.urlencoded());
 app.use(express.json());
 var crypto = require('crypto');
 const lineReader = require('line-reader');
 
-app.post('/sha', (req, res) => {
+app.post('/node/sha', (req, res) => {
     var num1 = req.body.number1;
     var num2 = req.body.number2;
     if (num1 == undefined || num2 == undefined || num1 == '' || num2 == '' || Number.isNaN(num1) || Number.isNaN(num2)) {
@@ -20,7 +18,7 @@ app.post('/sha', (req, res) => {
     res.status(200).json({ Hash: hash })
 })
 
-app.get('/write', (req, res) => {
+app.get('/node/write', (req, res) => {
     var lineNumber = req.query.lineNumber;
 
     if (lineNumber == undefined || lineNumber == '' || Number.isNaN(lineNumber)) {
