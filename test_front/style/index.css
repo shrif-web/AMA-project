@@ -1,0 +1,14 @@
+.input {
+    width: 50%;
+    text-align: center;
+    
+}
+
+form > div  {
+    margin: 20px;
+    padding: 10px;
+}
+
+.submit-btn{
+    padding: 10px;
+}
