@@ -32,15 +32,15 @@
         <div class="body-form bg-white">
             <ul class="nav nav-tabs nav-justified">
                 <li class="nav-item">
-                    <a class="nav-link font-weight-bold" data-toggle="tab" href="#signup">ثبت نام</a>
+                    <a id="signup-btn" class="nav-link font-weight-bold active" data-toggle="tab" href="#signup" onclick="changeToSignUpForm()">ثبت نام</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active font-weight-bold" data-toggle="tab" href="#signin">ورود</a>
+                    <a id="signin-btn" class="nav-link font-weight-bold" data-toggle="tab" href="#signin" onclick="changeToSignInForm()">ورود</a>
                 </li>
             </ul>
             <form class="bg-white">
                 <div class="tab-content">
-                    <div id="signup" class="tab-pane bg-white justify-content-center">
+                    <div id="signup" class="tab-pane bg-white active justify-content-center">
                         <div class="form-input-wrapper">
                             <input type="email" placeholder="ایمیل" class="form-control" id="exampleInputEmail1">
                         </div>
@@ -64,7 +64,7 @@
                             <p class="bg-danger">ریدی!</p>
                         </div>
                     </div>
-                    <div id="signin" class="tab-pane active bg-white justify-content-center">
+                    <div id="signin" class="tab-pane bg-white justify-content-center">
                         <div class="form-input-wrapper">
                             <input type="email" placeholder="ایمیل" class="form-control" id="exampleInputEmail1">
                         </div>
@@ -95,6 +95,9 @@
             </picture> -->
         </div>
     </div>
+
+    <script src="../scripts/register.js"></script>
+
 
 </body>
 
