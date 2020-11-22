@@ -34,6 +34,7 @@
   </head>
 
   <body>
+    <!-- desktop version -->
     <div class="desktop-custom">
       <nav class="navbar fixed-top shadow">
         <a class="navbar-brand" href="./home.html">
@@ -46,79 +47,46 @@
           <button class="btn btn-primary">ثبت‌نام</button>
         </div>
       </nav>
+
       <div class="container-fluid" style="height: 100%">
         <nav class="bg-primary text-light sidebar">
-          <h3 class="flex-column navbar-brand">اعضای تیم</h3>
-          <ul class="flex-column">
+          <h3 class="navbar-brand">اعضای تیم</h3>
+          <ul>
             <li>ابوالفضل اسد</li>
             <li>علیرضا ضیائی</li>
           </ul>
         </nav>
-        <div
-          style="
-            padding-right: 300px;
-            padding-top: 100px;
-            overflow-y: auto;
-            height: 100%;
-          "
-        >
-          <h1>ok1</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-        </div>
+
+        <div class="desktop-container"></div>
       </div>
     </div>
 
+    <!-- mobile version -->
     <div class="mobile-custom">
-      <nav class="navbar fixed-top shadow">
+      <nav class="navbar fixed-top shadow d-flex">
         <a class="navbar-brand" href="./home.html">
           <img src="../assets/blue_logo_croped.png" alt="" loading="lazy" />
         </a>
-        <span class="navbar-toggler-icon"></span>
+        <button
+          id="mobile-toggle-btn"
+          class="btn text-primary ml-auto"
+          onclick="toggleNav()"
+        >
+          &#9776;
+        </button>
       </nav>
 
       <div class="container-fluid" style="height: 100%">
-        <nav class="bg-primary text-light sidebar">
-          <h3 class="flex-column navbar-brand">اعضای تیم</h3>
+        <nav class="bg-primary text-light sidebar" id="mobile-sidenav">
+          <h3 class="navbar-brand">اعضای تیم</h3>
           <ul class="flex-column">
             <li>ابوالفضل اسد</li>
             <li>علیرضا ضیائی</li>
           </ul>
         </nav>
-        <div
-          style="padding-top: 100px; padding-bottom: 100px; overflow-y: auto"
-        >
-          <h1>ok1</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok</h1>
-          <h1>ok2</h1>
-        </div>
+        <div class="mobile-container"></div>
       </div>
-      <nav
-        class="navbar fixed-bottom shadow d-flex justify-content-center"
-        style="padding: 10px"
-      >
+      <nav class="navbar fixed-bottom shadow d-flex justify-content-center">
         <a class="flex-fill nav-link active text-center" href="#">خانه</a>
         <a class="flex-fill nav-link text-center" href="#">داده‌ها</a>
         <a class="flex-fill nav-link text-center" href="#">ورود</a>
@@ -126,18 +94,19 @@
       </nav>
     </div>
 
-
-
     <script>
-      function openNav() {
-        document.getElementById("mySidenav").style.width = "250px";
-      }
-
-      function closeNav() {
-        document.getElementById("mySidenav").style.width = "0";
+      function toggleNav() {
+        if (
+          document.getElementById("mobile-sidenav").style.display === "block"
+        ) {
+          document.getElementById("mobile-sidenav").style.display = "none";
+          document.getElementById("mobile-toggle-btn").innerHTML = "&#9776;";
+        } else {
+          document.getElementById("mobile-sidenav").style.display = "block";
+          document.getElementById("mobile-toggle-btn").innerHTML = "X";
+        }
       }
     </script>
-
     <script
       src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
