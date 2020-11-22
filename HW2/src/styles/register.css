@@ -25,14 +25,21 @@ header > nav {
 .main-box {
   max-width: 1000px;
   background-color: #e8eff7;
+  padding-top: 50px;
 }
 .body-form {
-  flex-grow: 2;
+  flex: 3;
 }
 
 .body-img {
-  flex-grow: 6;
-  background-image: url("../assets/signup-lowQ-dark.jpg");
+  flex: 5;
+  padding: 0;
+  margin: 0;
+  /* background-image: url("../assets/signup-lowQ-dark.jpg");
+  max-width: 100%;
+  max-height: 100%;
+  width: 400px;
+  height: 300px; */
 }
 
 .form-input-wrapper {
@@ -54,7 +61,7 @@ input::placeholder {
   color: #387eb1;
 }
 
-.server-validation-error{
+.server-validation-error {
   margin: 15px;
   width: 300px;
   margin-right: auto;
@@ -63,11 +70,22 @@ input::placeholder {
   opacity: 0.5;
 }
 
-.body-form > ul > li{
-  background-color: #D1E4F3;
+.body-form > ul > li {
+  background-color: #d1e4f3;
 }
 
-#signin{
+#signin {
   padding-top: 70px;
   padding-bottom: 70px;
+}
+
+@media only screen and (max-width: 600px) {
+  .jumbotron {
+    display: none;
+  }
+
+  .main-box {
+    padding-top: 10%;
+    max-width: 350px;
+  }
 }
