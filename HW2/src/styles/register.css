@@ -1,0 +1,73 @@
+* {
+  font-family: Sahel, Samim, Shabnam;
+  background-color: #e8eff7;
+}
+
+body {
+  background-color: #e8eff7;
+}
+.navbar-brand img {
+  max-width: 60%;
+  height: auto;
+}
+.navbar-btns {
+  color: #387eb1;
+}
+
+.navbar-btns a {
+  color: #387eb1;
+}
+
+header > nav {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.main-box {
+  max-width: 1000px;
+  background-color: #e8eff7;
+}
+.body-form {
+  flex-grow: 2;
+}
+
+.body-img {
+  flex-grow: 6;
+  background-image: url("../assets/signup-lowQ-dark.jpg");
+}
+
+.form-input-wrapper {
+  margin: 15px;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  color: #387eb1;
+}
+.form-input-wrapper > input {
+  border-color: #387eb1;
+  border-radius: 0;
+}
+input::placeholder {
+  color: #387eb1;
+}
+
+.form-control {
+  color: #387eb1;
+}
+
+.server-validation-error{
+  margin: 15px;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.body-form > ul > li{
+  background-color: #D1E4F3;
+}
+
+#signin{
+  padding-top: 70px;
+  padding-bottom: 70px;
+}

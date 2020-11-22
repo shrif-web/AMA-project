@@ -7,7 +7,7 @@ header {
   color: #2673aa;
 }
 
-.navbar-nav li:hover  {
+.navbar-nav li:hover {
   border-bottom: 4px solid #186aa5;
 }
 
@@ -38,9 +38,14 @@ header {
   margin-right: 60%;
 }
 
-.navbar-btns button {
+.navbar-btns a {
   margin: 10px;
   width: 100px;
   height: auto;
   border-radius: 0;
 }
+
+#register {
+  color: white;
+}
+
