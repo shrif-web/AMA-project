@@ -12,6 +12,14 @@
     <link href='https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam.css' rel='stylesheet' type='text/css'>
     <link href='../styles/register.css' rel='stylesheet' type='text/css'>
     <link rel="icon" type="image/x-icon" href="../assets/blue_favicon/favicon.ico" />
+    <script type="text/javascript">
+        function codeAddress() {
+            if (document.URL.endsWith("signin")) {
+                changeToSignInForm()
+            }
+        }
+        window.onload = codeAddress;
+    </script>
 </head>
 
 <body>
@@ -43,56 +51,56 @@
                 <div class="tab-content">
                     <div id="signup" class="tab-pane bg-white active justify-content-center">
                         <div class="form-input-wrapper">
-                            <input type="email" placeholder="ایمیل" class="form-control" id="exampleInputEmail1">
+                            <input type="email" placeholder="ایمیل" class="form-control" id="registerEmail">
                         </div>
                         <div class="form-input-wrapper">
                             <input type="password" placeholder="رمز عبور" class="form-control"
-                                id="exampleInputPassword1">
+                                id="registerPassword1">
                         </div>
                         <div class="form-input-wrapper">
                             <input type="password" placeholder="تکرار رمز عبور" class="form-control"
-                                id="exampleInputPassword1">
+                                id="registerPassword2">
                         </div>
 
                         <div class="form-group form-check bg-white form-input-wrapper">
-                            <input type="checkbox" class="form-check-input bg-white" id="exampleCheck1">
+                            <input type="checkbox" class="form-check-input bg-white" id="registerCheck">
                             <label class="form-check-label bg-white" for="exampleCheck1">قوانین و شرایط را
                                 می‌پذیرم</label>
                         </div>
                         <button type="submit"
-                            class="btn btn-primary btn-block form-input-wrapper text-white">ثبت‌نام</button>
-                        <div class="server-validation-error text-white invisible">
+                            class="btn btn-primary btn-block form-input-wrapper text-white" onclick="validateRegister()">ثبت‌نام</button>
+                        <div id="registerError" class="server-validation-error text-white invisible">
                             <p class="bg-danger">ریدی!</p>
                         </div>
                     </div>
                     <div id="signin" class="tab-pane bg-white justify-content-center">
                         <div class="form-input-wrapper">
-                            <input type="email" placeholder="ایمیل" class="form-control" id="exampleInputEmail1">
+                            <input type="email" placeholder="ایمیل" class="form-control" id="signInEmail">
                         </div>
                         <div class="form-input-wrapper">
                             <input type="password" placeholder="رمز عبور" class="form-control"
-                                id="exampleInputPassword1">
+                                id="signInPassword">
                         </div>
 
                         <button type="submit"
-                            class="btn btn-primary btn-block form-input-wrapper text-white">ورود</button>
-                        <div class="server-validation-error text-white visible">
+                            class="btn btn-primary btn-block form-input-wrapper text-white" onclick="validateSignIn()">ورود</button>
+                        <div id="signInError" class="server-validation-error text-white invisible">
                             <p class="bg-danger">ریدی!</p>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
-        <div id class="jumbotron card card-image body-img">
-            <p class="mx-5 mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellat fugiat,
-                laboriosam, voluptatem,
-                optio vero odio nam sit officia accusamus minus error nisi architecto nulla ipsum dignissimos. Odit
-                sed qui, dolorum!
-            </p>
-            <picture>
+        <div class="jumbotron card card-image body-img">
+            <picture id="main-pic">
                 <source media="(min-width:1000px)" srcset="../assets/signup-highQ-light.jpg">
-                <source media="(min-width:600px)" srcset="../assets/signup-lowQ-ligh.jpg">
-
+                <source media="(min-width:600px)" srcset="../assets/signup-lowQ-dark.jpg">
+                <img id="main-pic-img-tag" src="../assets/signup-lowQ-dark.jpg" alt="Flowers"
+                    style="width: 100%; height: 350px;">
+                <p id="main-pic-paragraph" style="position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);background: none;"> سلام خوش اومدی <br> لطفا ثبت‌نام کن!</p>
             </picture>
 
         </div>
