@@ -2,21 +2,19 @@
   font-family: Sahel, Samim, Shabnam;
 }
 
-header {
-  background-color: #e8eff7;
-  color: #2673aa;
-}
-
-.navbar-nav li:hover  {
-  border-bottom: 4px solid #186aa5;
-}
-
-.navbar-nav li {
-  padding: 15px;
+html,
+body {
+  height: 100%;
 }
 
 .navbar {
   padding: 0px;
+  background-color: #e8eff7;
+  color: #2673aa;
+}
+
+.navbar-toggler {
+  color: #2673aa;
 }
 
 .navbar-brand img {
@@ -30,17 +28,52 @@ header {
   margin: 0;
 }
 
-.navbar-nav {
-  max-height: max-content;
-}
-
-.navbar-btns {
-  margin-right: 60%;
-}
-
 .navbar-btns button {
   margin: 10px;
   width: 100px;
   height: auto;
   border-radius: 0;
+}
+
+.nav-link.active {
+  border-bottom: 4px solid #186aa5;
+}
+
+@media (max-width: 599.98px) {
+  .desktop-custom {
+    display: none !important;
+    height: 100%;
+  }
+  .mobile-custom {
+    display: flex !important;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding-top: 100px;
+    padding-right: 20px;
+    width: 300px;
+  }
+}
+
+@media (min-width: 600px) {
+  .desktop-custom {
+    display: flex !important;
+  }
+  .mobile-custom {
+    display: none !important;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    padding-top: 100px;
+    padding-right: 20px;
+    width: 300px;
+  }
 }
