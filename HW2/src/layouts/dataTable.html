@@ -24,8 +24,8 @@
             <a class="nav-link" href="./home.html">خانه</a>
             <a class="nav-link active" href="./dataTable.html">داده‌ها</a>
             <div class="navbar-btns ml-auto">
-                <button class="btn btn-outline-primary">ورود</button>
-                <button class="btn btn-primary">ثبت‌نام</button>
+                <a class="btn btn-outline-primary" href="./register.html#signin">ورود</a>
+                <a class="btn btn-primary" href="./register.html">ثبت‌نام</a>
             </div>
         </nav>
         <div class="container-fluid" style="height: 100%">
@@ -68,20 +68,22 @@
     </div>
 
     <div class="mobile-custom">
-        <nav class="navbar fixed-top shadow">
+        <nav class="navbar fixed-top shadow d-flex">
             <a class="navbar-brand" href="./home.html">
                 <img src="../assets/blue_logo_croped.png" alt="" loading="lazy" />
             </a>
-            <span class="navbar-toggler-icon"></span>
+            <button id="mobile-toggle-btn" class="btn text-primary ml-auto" onclick="toggleNav()">
+                &#9776;
+            </button>
         </nav>
 
         <div class="container-fluid" style="height: 100%">
-            <nav class="bg-primary text-light sidebar invisible">
-                <h3 class="flex-column navbar-brand">اعضای تیم</h3>
-                <ul class="flex-column">
-                    <li>ابوالفضل اسد</li>
-                    <li>علیرضا ضیائی</li>
-                </ul>
+            <nav class="bg-primary text-light sidebar" id="mobile-sidenav">
+              <h3 class="navbar-brand">اعضای تیم</h3>
+              <ul class="flex-column">
+                <li>ابوالفضل اسد</li>
+                <li>علیرضا ضیائی</li>
+              </ul>
             </nav>
             <div id="card-container" style="padding-top: 100px; padding-bottom: 100px; overflow-y: auto">
 
@@ -108,12 +110,16 @@
     <script src="../scripts/dataTable.js"></script>
 
     <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "250px";
-        }
-
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
+        function toggleNav() {
+            if (
+                document.getElementById("mobile-sidenav").style.display === "block"
+            ) {
+                document.getElementById("mobile-sidenav").style.display = "none";
+                document.getElementById("mobile-toggle-btn").innerHTML = "&#9776;";
+            } else {
+                document.getElementById("mobile-sidenav").style.display = "block";
+                document.getElementById("mobile-toggle-btn").innerHTML = "X";
+            }
         }
 
         fillTable()

@@ -16,7 +16,7 @@ body {
   max-height: 60px;
 }
 
-.navbar-btns button {
+.navbar-btns a {
   margin: 10px;
   width: 90px;
   border-radius: 0;
