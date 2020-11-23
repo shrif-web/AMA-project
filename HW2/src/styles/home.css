@@ -2,50 +2,123 @@
   font-family: Sahel, Samim, Shabnam;
 }
 
-header {
-  background-color: #e8eff7;
+html,
+body {
+  height: 100%;
+}
+
+.navbar-toggler {
   color: #2673aa;
 }
 
-.navbar-nav li:hover {
-  border-bottom: 4px solid #186aa5;
+.navbar-brand img {
+  max-width: 100px;
+  max-height: 60px;
 }
 
-.navbar-nav li {
-  padding: 15px;
+.navbar-btns button {
+  margin: 10px;
+  width: 90px;
+  border-radius: 0;
+}
+
+.nav-link.active {
+  border-bottom: 4px solid #186aa5;
 }
 
 .navbar {
   padding: 0px;
+  background-color: #e8eff7;
+  height: 70px;
 }
 
-.navbar-brand img {
-  max-width: 60%;
-  height: auto;
+#mobile-sidenav {
+  display: none;
 }
 
-.navbar-collapse {
-  height: 100%;
-  padding: 0;
-  margin: 0;
+#mobile-toggle-btn {
+  font-size: 30px;
 }
 
-.navbar-nav {
-  max-height: max-content;
+.mobile-container {
+  margin-top: 70px;
+  margin-bottom: 80px;
+}
+.desktop-container {
+  margin-top: 70px;
+  margin-right: 300px;
+  max-width: 1000px;
 }
 
-.navbar-btns {
-  margin-right: 60%;
+@media (max-width: 599.98px) {
+  .desktop-custom {
+    display: none !important;
+    height: 100%;
+  }
+  .mobile-custom {
+    display: flex !important;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding-top: 100px;
+    padding-right: 20px;
+    width: 250px;
+  }
 }
 
-.navbar-btns a {
-  margin: 10px;
-  width: 100px;
-  height: auto;
-  border-radius: 0;
+@media (min-width: 600px) {
+  .desktop-custom {
+    display: flex !important;
+  }
+  .mobile-custom {
+    display: none !important;
+  }
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    padding-top: 100px;
+    padding-right: 20px;
+    width: 300px;
+  }
+}
+
+/* list group item*/
+.list-group-item {
+  width: 90%;
+  margin: 5% !important;
+  box-shadow: 0.8px 0.9px 3px #186aa5;
+}
+
+.list-group-item:hover {
+  box-shadow: 1px 8px 20px #186aa5;
+}
+
+@media (min-width: 600px) {
+  .list-group-item {
+    width: 47%;
+    margin: 5px 1.5% !important;
+  }
+}
+@media (min-width: 800px) {
+  .list-group-item {
+    width: 31.333%;
+    margin: 5px 1% !important;
+  }
+}
+@media (min-width: 1000px) {
+  .list-group-item {
+    width: 23%;
+    margin: 5px 1% !important;
+  }
 }
 
 #register {
   color: white;
 }
-
