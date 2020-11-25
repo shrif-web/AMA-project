@@ -22,15 +22,15 @@ function fillCards() {
         card.innerHTML = `
         <div class="card-body font-weight-bold">
             <div class="d-flex justify-content-between">
-                <p class="card-text">رتبه</p>
+                <p class="card-text font-weight-light">رتبه</p>
                 <p class="card-text card-data">${element.ranking}</p>
             </div>
             <div class="d-flex justify-content-between">
                 <p class="card-text">نام تیم</p>
-                <p class="card-text  card-data">${element.name}</p>
+                <p class="card-text card-data">${element.name}</p>
             </div>
             <div class="d-flex justify-content-between">
-                <p class="card-text">نام دانشگاه و کشور</p>
+                <p class="card-text font-weight-light">نام دانشگاه و کشور</p>
                 <p class="card-text card-data">${element.from}</p>
             </div>
             <div class="d-flex justify-content-between">
