@@ -9,6 +9,7 @@ var adminRouter = require('./routes/admin');
 var signinRouter = require('./routes/signin');
 var signupRouter = require('./routes/signup');
 var postRouter = require('./routes/post');
+const Parse = require('parse/node');
 
 var app = express();
 
@@ -44,5 +45,10 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+Parse.initialize("myAppId");
+//javascriptKey is required only if you have it on server.
+
+Parse.serverURL = 'http://localhost:1337/parse'
 
 module.exports = app;
