@@ -75,7 +75,7 @@ body {
     display: flex !important;
   }
   .mobile-custom {
-    display: none !important;
+    display:flex !important;
   }
   .sidebar {
     position: fixed;
