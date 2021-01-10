@@ -4,7 +4,7 @@ var ParseDashboard = require('parse-dashboard');
 var app = express();
 
 var api = new ParseServer({
-  databaseURI: 'mongodb://localhost:9876/dev', // Connection string for your MongoDB database
+  databaseURI: 'mongodb://localhost:27017/dev', // Connection string for your MongoDB database
 //   cloud: './cloud/main.js', // Path to your Cloud Code
   appId: 'myAppId',
   masterKey: 'myMasterKey', // Keep this key secret!
