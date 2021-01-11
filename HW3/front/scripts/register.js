@@ -60,17 +60,30 @@ function validateRegister() {
             hasError = false;
             error.innerHTML = "<p></p>"
         }, 3000);
+        return;
     }
 
     const xhr = new XMLHttpRequest();
     const url = 'http://localhost:4000/api/signup';
+    xhr.responseType = 'json';
     let params = `email=${email}&password=${pass1}`;
     xhr.open('POST', url, true);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            console.log(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == 201) {
+            error.innerHTML = `<p class="bg-success"> ${xhr.response.message}</p > `;
         }
+        else {
+            error.innerHTML = `<p class="bg-danger"> ${xhr.response.message}</p > `;
+        }
+
+        hasError = true;
+        error.classList.remove("invisible");
+        setTimeout(() => {
+            error.classList.add("invisible");
+            hasError = false;
+            error.innerHTML = "<p></p>"
+        }, 3000);
     }
     xhr.send(params);
 }
@@ -102,12 +115,34 @@ function validateSignIn() {
 
     const xhr = new XMLHttpRequest();
     const url = 'http://localhost:4000/api/signin';
+    xhr.responseType = 'json';
     let params = `email=${email}&password=${pass}`;
     xhr.open('POST', url);
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            console.log(xhr.responseText);
+        console.log(xhr.readyState);
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                let token = xhr.response.token;
+                window.sessionStorage.setItem("Token", token);
+                window.localStorage.setItem("Token", token);
+                console.log(token);
+                setTimeout(function () {
+                    document.location.href = "http://localhost:4000/dashboard";
+                    window.sessionStorage.setItem("Token", token);
+                    window.localStorage.setItem("Token", token);
+                }, 1)
+            }
+            else {
+                error.innerHTML = `<p class="bg-danger"> ${xhr.response?.message}</p > `;
+                hasError = true;
+                error.classList.remove("invisible");
+                setTimeout(() => {
+                    error.classList.add("invisible");
+                    hasError = false;
+                    error.innerHTML = "<p></p>"
+                }, 3000);
+            }
         }
     }
     xhr.send(params);
