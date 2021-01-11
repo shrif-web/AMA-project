@@ -27,7 +27,11 @@ router
 
     //TODO get user_id from token
     const user_id = "0";
-    const post = new Post({ title: title, content: content , created_by: user_id});
+    const post = new Post({
+      title: title,
+      content: content,
+      created_by: user_id,
+    });
     post
       .save()
       .then((data) => {
@@ -113,14 +117,26 @@ router
       });
   });
 
-router.route("/signup").post((req, res) => {
+function validateEmail(email) {
+  const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(email);
+}
+router.route("/signup").post(async(req, res) => {
   const { email, password } = req.body;
   if (Object.keys(req.body).length !== 2)
     return res.status(400).send({ message: "Request Length should be 2" });
-  if (email === undefined || email === "")
+  if (email === undefined || !validateEmail(email))
     return res.status(400).send({ message: "filed `email` is not valid" });
-  if (password === undefined || password === "")
-    return res.status(400).send({ message: "filed `password` is not valid" });
+  if (password === undefined || password.length <= 5)
+    return res
+      .status(400)
+      .send({ message: "filed `password`.length should be gt 5" });
+
+
+  const user_same_email = await User.findOne({ email: email });
+  if (user_same_email){
+      return res.status(409).send({  "message": "email already exist."});
+  }
 
   const user = new User({ email: email, password: password });
   user
