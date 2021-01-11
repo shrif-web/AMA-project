@@ -2,6 +2,7 @@ const { query } = require("express");
 const express = require("express");
 const router = express.Router();
 const Post = require("./model.post");
+const User = require("./model.user");
 
 router
   .route("/admin/post/crud")
@@ -24,9 +25,9 @@ router
     if (content === undefined || content === "")
       return res.status(400).send({ message: "filed `content` is not valid" });
 
-    // const date = new Date().toJSON().slice(0,10).replace(/-/g,'/');
-    const date = new Date().toString();
-    const post = new Post({ title: title, content: content, created_at: date });
+    //TODO get user_id from token
+    const user_id = "0";
+    const post = new Post({ title: title, content: content , created_by: user_id});
     post
       .save()
       .then((data) => {
@@ -111,5 +112,52 @@ router
         return res.status(500).send();
       });
   });
+
+router.route("/signup").post((req, res) => {
+  const { email, password } = req.body;
+  if (Object.keys(req.body).length !== 2)
+    return res.status(400).send({ message: "Request Length should be 2" });
+  if (email === undefined || email === "")
+    return res.status(400).send({ message: "filed `email` is not valid" });
+  if (password === undefined || password === "")
+    return res.status(400).send({ message: "filed `password` is not valid" });
+
+  const user = new User({ email: email, password: password });
+  user
+    .save()
+    .then((data) => {
+      return res.status(201).send({ message: "user has been created." });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).send();
+    });
+});
+
+router.route("/admin/user/crud/").get((req, res) => {
+  User.find({})
+    .then((doc) => {
+      return res.status(200).send({ users: doc });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).send();
+    });
+});
+
+router.route("/admin/user/crud/:id").get((req, res) => {
+  const id = req.params.id;
+  if (id === undefined || id === "" || !Number.isInteger(+id))
+    return res.status(400).send({ message: "url id is not valid" });
+  User.findOne({ user_id: id })
+    .then((doc) => {
+      if (doc) return res.status(200).send(doc);
+      return res.status(404).send({ message: "post with this id not found" });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).send();
+    });
+});
 
 module.exports = router;

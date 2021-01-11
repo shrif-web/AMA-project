@@ -1,12 +1,12 @@
 const mongoose = require("mongoose");
-const AutoIncrement = require("mongoose-sequence")(mongoose);
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
-let PostSchema = new mongoose.Schema({
-  title: {
+let UserSchema = new mongoose.Schema({
+  email: {
     type: String,
     required: true,
   },
-  content: {
+  password: {
     type: String,
     required: true,
   },
@@ -16,12 +16,8 @@ let PostSchema = new mongoose.Schema({
     default: () => new Date().toString(),
     // default: new Date().toJSON().slice(0,10).replace(/-/g,'/'),
   },
-  created_by: {
-    type: String,
-    required: true,
-  },
 });
 
-PostSchema.plugin(AutoIncrement, { inc_field: "id" });
+UserSchema.plugin(AutoIncrement, {inc_field: 'user_id'});
 
-module.exports = mongoose.model("Post", PostSchema);
+module.exports = mongoose.model("User", UserSchema);
