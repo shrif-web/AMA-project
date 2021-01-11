@@ -6,6 +6,7 @@ const User = require("../model.user");
 var jwt = require("jsonwebtoken");
 
 router.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   const token = req.headers.authorization;
   if (!token) {
     return res.status(401).send({ message: "token neded" });
@@ -23,6 +24,7 @@ router.use((req, res, next) => {
 router
   .route("/admin/post/crud")
   .get((req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     Post.find({ created_by: req.user_id })
       .then((doc) => {
         return res.status(200).send({ posts: doc });
@@ -33,6 +35,7 @@ router
       });
   })
   .post((req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     const { title, content } = req.body;
     if (Object.keys(req.body).length !== 2)
       return res.status(400).send({ message: "Request Length should be 2" });
@@ -62,6 +65,7 @@ router
 router
   .route("/admin/post/crud/:id")
   .get((req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     const id = req.params.id;
     if (id === undefined || id === "" || !Number.isInteger(+id))
       return res.status(400).send({ message: "url id is not valid" });
@@ -76,6 +80,7 @@ router
       });
   })
   .delete((req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     const id = req.params.id;
     if (id === undefined || id === "" || !Number.isInteger(+id))
       return res.status(400).send({ message: "url id is not valid" });
@@ -101,6 +106,7 @@ router
       });
   })
   .put((req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     const { title, content } = req.body;
     if (Object.keys(req.body).length !== 2)
       return res.status(400).send({ message: "Request Length should be 2" });

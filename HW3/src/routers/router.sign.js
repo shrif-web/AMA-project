@@ -10,6 +10,7 @@ function validateEmail(email) {
   return re.test(email);
 }
 router.route("/signin").post(async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   const { email, password } = req.body;
   if (Object.keys(req.body).length !== 2)
     return res.status(400).send({ message: "Request Length should be 2" });
@@ -38,6 +39,8 @@ router.route("/signin").post(async (req, res) => {
 });
 
 router.route("/signup").post(async (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  console.log('signup')
   const { email, password } = req.body;
   if (Object.keys(req.body).length !== 2)
     return res.status(400).send({ message: "Request Length should be 2" });
@@ -66,6 +69,7 @@ router.route("/signup").post(async (req, res) => {
 });
 
 router.route("/check").get((req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   const token = req.body.token || "ali";
   jwt.verify(token, "secret", (err, id) => {
     if (err) res.status(399).send();
@@ -73,5 +77,11 @@ router.route("/check").get((req, res) => {
   });
   res.send();
 });
+
+router.route("/").post((req, res)=>{
+  console.log('tlsjfke');
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.send("1234");
+})
 
 module.exports = router;

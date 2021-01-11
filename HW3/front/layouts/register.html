@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+    <title>ثبت نام</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
+        integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous">
+    <link href='https://cdn.fontcdn.ir/Font/Persian/Sahel/Sahel.css' rel='stylesheet' type='text/css'>
+    <link href='https://cdn.fontcdn.ir/Font/Persian/Samim/Samim.css' rel='stylesheet' type='text/css'>
+    <link href='https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam.css' rel='stylesheet' type='text/css'>
+    <link href='../styles/register.css' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/x-icon" href="../assets/blue_favicon/favicon.ico" />
+    <script type="text/javascript">
+        function codeAddress() {
+            if (document.URL.endsWith("signin")) {
+                changeToSignInForm()
+            }
+        }
+        window.onload = codeAddress;
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg header-navbar justify-content-between">
+            <a class="navbar-brand" href="./home.html">
+                <img src="../assets/blue_logo_croped.png" alt="" loading="lazy">
+            </a>
+
+            <div class="navbar-btns">
+                <a href="./home.html" class="btn">بازگشت به خانه ></a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="main-box d-flex justify-content-center m-auto">
+        <div class="body-form bg-white">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="nav-item">
+                    <a id="signup-btn" class="nav-link font-weight-bold active" data-toggle="tab" href="#signup"
+                        onclick="changeToSignUpForm()">ثبت نام</a>
+                </li>
+                <li class="nav-item">
+                    <a id="signin-btn" class="nav-link font-weight-bold" data-toggle="tab" href="#signin"
+                        onclick="changeToSignInForm()">ورود</a>
+                </li>
+            </ul>
+            <form class="bg-white">
+                <div class="tab-content">
+                    <div id="signup" class="tab-pane bg-white active justify-content-center">
+                        <div class="form-input-wrapper">
+                            <input type="email" placeholder="ایمیل" class="form-control" id="registerEmail">
+                        </div>
+                        <div class="form-input-wrapper">
+                            <input type="password" placeholder="رمز عبور" class="form-control"
+                                id="registerPassword1">
+                        </div>
+                        <div class="form-input-wrapper">
+                            <input type="password" placeholder="تکرار رمز عبور" class="form-control"
+                                id="registerPassword2">
+                        </div>
+
+                        <div class="form-group form-check bg-white form-input-wrapper">
+                            <input type="checkbox" class="form-check-input bg-white" id="registerCheck">
+                            <label class="form-check-label bg-white" for="exampleCheck1">قوانین و شرایط را
+                                می‌پذیرم</label>
+                        </div>
+                        <button type="submit"
+                            class="btn btn-primary btn-block form-input-wrapper text-white" onclick="validateRegister()">ثبت‌نام</button>
+                        <div id="registerError" class="server-validation-error text-white invisible">
+                            <p class="bg-danger">ریدی!</p>
+                        </div>
+                    </div>
+                    <div id="signin" class="tab-pane bg-white justify-content-center">
+                        <div class="form-input-wrapper">
+                            <input type="email" placeholder="ایمیل" class="form-control" id="signInEmail">
+                        </div>
+                        <div class="form-input-wrapper">
+                            <input type="password" placeholder="رمز عبور" class="form-control"
+                                id="signInPassword">
+                        </div>
+
+                        <button type="submit"
+                            class="btn btn-primary btn-block form-input-wrapper text-white" onclick="validateSignIn()">ورود</button>
+                        <div id="signInError" class="server-validation-error text-white invisible">
+                            <p class="bg-danger">ریدی!</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="jumbotron card card-image body-img">
+            <picture id="main-pic">
+                <source media="(min-width:1000px)" srcset="../assets/signup-highQ-light.jpg">
+                <source media="(min-width:600px)" srcset="../assets/signup-lowQ-dark.jpg">
+                <img id="main-pic-img-tag" src="../assets/signup-lowQ-dark.jpg" alt="Flowers"
+                    style="width: 100%; height: 350px;">
+                <p id="main-pic-paragraph" style="position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);background: none;"> سلام خوش اومدی <br> لطفا ثبت‌نام کن!</p>
+            </picture>
+
+        </div>
+    </div>
+
+    <script src="../scripts/register.js"></script>
+
+
+</body>
+
+</html>

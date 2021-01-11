@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="fa">
+
+<head>
+    <title>داده ها</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.2.1/css/bootstrap.min.css"
+        integrity="sha384-vus3nQHTD+5mpDiZ4rkEPlnkcyTP+49BhJ4wJeJunw06ZAp+wzzeBPUXr42fi8If" crossorigin="anonymous" />
+    <link href="https://cdn.fontcdn.ir/Font/Persian/Sahel/Sahel.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.fontcdn.ir/Font/Persian/Samim/Samim.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.fontcdn.ir/Font/Persian/Shabnam/Shabnam.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/home.css" rel="stylesheet" type="text/css" />
+    <link href="../styles/dataTable.css" rel="stylesheet" type="text/css" />
+    <link rel="icon" type="image/x-icon" href="../assets/blue_favicon/favicon.ico" />
+</head>
+
+<body>
+    <div class="desktop-custom">
+        <nav class="navbar fixed-top shadow">
+            <a class="navbar-brand" href="./home.html">
+                <img src="../assets/blue_logo_croped.png" alt="" loading="lazy" />
+            </a>
+            <a class="nav-link" href="./home.html">خانه</a>
+            <a class="nav-link active" href="./dataTable.html">داده‌ها</a>
+            <div class="navbar-btns ml-auto">
+                <a class="btn btn-outline-primary" href="./register.html#signin">ورود</a>
+                <a class="btn btn-primary" href="./register.html">ثبت‌نام</a>
+            </div>
+        </nav>
+        <div class="container-fluid" style="height: 100%">
+            <nav class="bg-primary text-light sidebar">
+                <h3 class="flex-column navbar-brand">اعضای تیم</h3>
+                <ul class="flex-column">
+                    <li>ابوالفضل اسد</li>
+                    <li>علیرضا ضیائی</li>
+                </ul>
+            </nav>
+            <div style="
+            padding-right: 300px;
+            padding-top: 100px;
+            overflow-y: auto;
+            height: 100%;
+          ">
+                <table id="main-table" class="table table-bordered text-center text-white">
+                    <thead>
+                        <tr>
+                            <th scope="col">رتبه</th>
+                            <th scope="col">نام تیم</th>
+                            <th scope="col">نام دانشگاه و کشور</th>
+                            <th scope="col">امتیاز</th>
+                        </tr>
+                    </thead>
+                    <tbody id="main-table-body">
+                    </tbody>
+                </table>
+                <div id="table-btns" class="d-flex justify-content-between ">
+                    <button class="btn btn-outline-primary">
+                        قبلی
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        بعدی
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="mobile-custom">
+        <nav class="navbar fixed-top shadow d-flex">
+            <a class="navbar-brand" href="./home">
+                <img src="../assets/blue_logo_croped.png" alt="" loading="lazy" />
+            </a>
+            <button id="mobile-toggle-btn" class="btn text-primary ml-auto" onclick="toggleNav()">
+                &#9776;
+            </button>
+        </nav>
+
+        <div class="container-fluid" style="height: 100%">
+            <nav class="bg-primary text-light sidebar" id="mobile-sidenav">
+              <h3 class="navbar-brand">اعضای تیم</h3>
+              <ul class="flex-column">
+                <li>ابوالفضل اسد</li>
+                <li>علیرضا ضیائی</li>
+              </ul>
+            </nav>
+            <div id="card-container" style="padding-top: 100px; padding-bottom: 100px; overflow-y: auto">
+
+                <div id="table-btns" class="d-flex justify-content-between ">
+                    <button class="btn btn-outline-primary">
+                        قبلی
+                    </button>
+                    <button class="btn btn-outline-primary">
+                        بعدی
+                    </button>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar fixed-bottom shadow d-flex justify-content-center" style="padding: 10px">
+            <a class="flex-fill nav-link active text-center" href="./home.html">خانه</a>
+            <a class="flex-fill nav-link text-center" href="./dataTable.html">داده‌ها</a>
+            <a class="flex-fill nav-link text-center" href="./register.html#signin">ورود</a>
+            <a class="flex-fill nav-link text-center" href="./register.html">ثبت‌نام</a>
+        </nav>
+    </div>
+
+
+
+    <script src="../scripts/dataTable.js"></script>
+
+    <script>
+        function toggleNav() {
+            if (
+                document.getElementById("mobile-sidenav").style.display === "block"
+            ) {
+                document.getElementById("mobile-sidenav").style.display = "none";
+                document.getElementById("mobile-toggle-btn").innerHTML = "&#9776;";
+            } else {
+                document.getElementById("mobile-sidenav").style.display = "block";
+                document.getElementById("mobile-toggle-btn").innerHTML = "X";
+            }
+        }
+
+        fillTable()
+        fillCards()
+
+        persian = { 0: '۰', 1: '۱', 2: '۲', 3: '۳', 4: '۴', 5: '۵', 6: '۶', 7: '۷', 8: '۸', 9: '۹' };
+        traverse(document.body)
+        function traverse(el) {
+            if (el.nodeType == 3) {
+                var list = el.data.match(/[0-9]/g);
+                if (list != null && list.length != 0) {
+                    for (var i = 0; i < list.length; i++)
+                        el.data = el.data.replace(list[i], persian[list[i]]);
+                }
+            }
+            for (var i = 0; i < el.childNodes.length; i++) {
+                traverse(el.childNodes[i]);
+            }
+        }
+    </script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.rtlcss.com/bootstrap/v4.2.1/js/bootstrap.min.js"
+        integrity="sha384-a9xOd0rz8w0J8zqj1qJic7GPFfyMfoiuDjC9rqXlVOcGO/dmRqzMn34gZYDTel8k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

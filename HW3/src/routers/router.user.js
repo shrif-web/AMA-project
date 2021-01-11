@@ -7,6 +7,7 @@ var jwt = require("jsonwebtoken");
 router
   .route("/crud/")
   .get((req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     User.find({})
       .then((doc) => {
         return res.status(200).send({ users: doc });
@@ -17,6 +18,7 @@ router
       });
   })
   .delete((req, res) => {
+    res.setHeader("Access-Control-Allow-Origin", "*");
     User.findOneAndRemove({})
       .then((docs) => {
         if (docs) return res.status(200).send({ message: "removed" });
@@ -28,6 +30,7 @@ router
   });
 
 router.route("/crud/:id").get((req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
   const id = req.params.id;
   if (id === undefined || id === "" || !Number.isInteger(+id))
     return res.status(400).send({ message: "url id is not valid" });

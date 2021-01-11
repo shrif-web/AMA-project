@@ -1,0 +1,91 @@
+* {
+  font-family: Sahel, Samim, Shabnam;
+  background-color: #e8eff7;
+}
+
+body {
+  background-color: #e8eff7;
+}
+.navbar-brand img {
+  max-width: 60%;
+  height: auto;
+}
+.navbar-btns {
+  color: #387eb1;
+}
+
+.navbar-btns a {
+  color: #387eb1;
+}
+
+header > nav {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.main-box {
+  max-width: 1000px;
+  background-color: #e8eff7;
+  padding-top: 50px;
+}
+.body-form {
+  flex: 3;
+}
+
+.body-img {
+  flex: 5;
+  padding: 0;
+  margin: 0;
+  /* background-image: url("../assets/signup-lowQ-dark.jpg");
+  max-width: 100%;
+  max-height: 100%;
+  width: 400px;
+  height: 300px; */
+}
+
+.form-input-wrapper {
+  margin: 15px;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  color: #387eb1;
+}
+.form-input-wrapper > input {
+  border-color: #387eb1;
+  border-radius: 0;
+}
+input::placeholder {
+  color: #387eb1;
+}
+
+.form-control {
+  color: #387eb1;
+}
+
+.server-validation-error {
+  margin: 15px;
+  width: 300px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  opacity: 0.5;
+}
+
+.body-form > ul > li {
+  background-color: #d1e4f3;
+}
+
+#signin {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+@media only screen and (max-width: 600px) {
+  .jumbotron {
+    display: none;
+  }
+
+  .main-box {
+    padding-top: 10%;
+    max-width: 350px;
+  }
+}
