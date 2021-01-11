@@ -128,7 +128,7 @@ function validateSignIn() {
                 window.localStorage.setItem("Token", token);
                 console.log(token);
                 setTimeout(function () {
-                    document.location.href = "http://localhost:4000/dashboard";
+                    document.location.href = "../dashboard/index.html";
                     window.sessionStorage.setItem("Token", token);
                     window.localStorage.setItem("Token", token);
                 }, 1)
