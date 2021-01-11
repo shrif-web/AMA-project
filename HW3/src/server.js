@@ -13,17 +13,11 @@ mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use("/api/", router);
-app.use("/api", router_signin);
+app.use("/api/", router_signin);
 app.use("/api/admin/user", router_user);
+app.use("/api/", router);
+
 app.use(cors());
-app.use('/', express.static('public'));
-
-
-app.post('/testing', (req, res)=>{
-  console.log("test");
-  res.send("hello");
-})
 
 app.listen(port, function () {
   console.log("Server is running on Port: " + port);

@@ -78,10 +78,4 @@ router.route("/check").get((req, res) => {
   res.send();
 });
 
-router.route("/").post((req, res)=>{
-  console.log('tlsjfke');
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.send("1234");
-})
-
 module.exports = router;
