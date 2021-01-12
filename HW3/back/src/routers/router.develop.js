@@ -5,7 +5,7 @@ const User = require("../model.user");
 var jwt = require("jsonwebtoken");
 
 router
-  .route("/crud/")
+  .route("/user")
   .get((req, res) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     User.find({})
