@@ -8,7 +8,7 @@ const router_user = require("./routers/router.user");
 var cors = require('cors')
 const port = 4000;
 
-var uri = "mongodb://localhost:9876/details";
+var uri = "mongodb://localhost:27017/details";
 mongoose.connect(uri, { useUnifiedTopology: true, useNewUrlParser: true });
 
 app.use(express.urlencoded({ extended: true }));
