@@ -1,8 +1,4 @@
-const { query } = require("express");
-const express = require("express");
-const router = express.Router();
-const Post = require("../model.post");
-const User = require("../model.user");
+const User = require("../model/model.user");
 var jwt = require("jsonwebtoken");
 
 function validateEmail(email) {
@@ -62,7 +58,7 @@ const signin = async (req, res) => {
 
   const token = jwt.sign(
     {
-      user_id: user_same_email.user_id,
+      user_id: `${user_same_email.user_id}`,
     },
     "secret",
     { expiresIn: "1h" }
