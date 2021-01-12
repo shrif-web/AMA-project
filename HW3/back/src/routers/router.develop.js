@@ -29,20 +29,5 @@ router
       });
   });
 
-router.route("/crud/:id").get((req, res) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  const id = req.params.id;
-  if (id === undefined || id === "" || !Number.isInteger(+id))
-    return res.status(400).send({ message: "url id is not valid" });
-  User.findOne({ user_id: id })
-    .then((doc) => {
-      if (doc) return res.status(200).send(doc);
-      return res.status(404).send({ message: "post with this id not found" });
-    })
-    .catch((err) => {
-      console.log(err);
-      return res.status(500).send();
-    });
-});
 
 module.exports = router;
