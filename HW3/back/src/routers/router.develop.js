@@ -29,5 +29,16 @@ router
       });
   });
 
+router.route("/post").get((req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  Post.find()
+    .then((doc) => {
+      return res.status(200).send({ posts: doc });
+    })
+    .catch((err) => {
+      console.log(err);
+      return res.status(500).send();
+    });
+});
 
 module.exports = router;
